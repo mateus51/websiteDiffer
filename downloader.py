@@ -2,8 +2,8 @@ from urllib.request import urlopen
 import json
 
 '''
-	This method downloads a webpage from a given URL
-	and returns its contents (HTML source code)
+This method downloads a webpage from a given URL
+and returns its contents (HTML source code)
 '''
 def download_webpage(url):
 	print("Downloading {0} ...".format(url))
@@ -14,11 +14,11 @@ def download_webpage(url):
 
 
 '''
-	Given a HTML table, extract from every header and row
-	the contents of the table.
-	Then, enters this information in a dictionary, in which the key
-	is the filename and the value is a tuple
-	in the format (last_modified_date, file_size)
+Given a HTML table, extract from every header and row
+the contents of the table.
+Then, enters this information in a dictionary, in which the key
+is the filename and the value is a tuple
+in the format (last_modified_date, file_size)
 '''
 def extract_table_data(table):
 	rows = table.findChildren(['th', 'tr'])
@@ -54,6 +54,12 @@ def save_dict_to_json(dict, filename):
 			print("Something wrong happened while creating {0}".format(filename))
 
 
+'''
+This method compares two dictionaries: the original one and the newer one,
+and check if there are any differences between their contents. 
+It assumes that the keys are the same.
+TODO: one dict might have more keys than the other, so I have to check that...
+'''
 def diff_two_dicts():
 	diff_found = False
 
